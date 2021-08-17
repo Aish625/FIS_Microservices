@@ -1,0 +1,15 @@
+server:
+  port: 8085
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: accountModule
+        uri: http://localhost:8081/
+        predicates:
+        - Path=/accounts/**
+      - id: loanModule
+        uri: http://localhost:8082/
+        predicates:
+        - Path=/loans/**
